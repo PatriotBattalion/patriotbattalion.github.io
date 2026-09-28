@@ -168,8 +168,8 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .staff-role-card .who .rank{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--blue);font-weight:600;background:var(--paper);padding:3px 8px;border-radius:6px;}
 .staff-role-card .who .name{font-weight:800;font-size:.94rem;}
 .staff-role-card p{margin:0;color:var(--ink-soft);font-size:.85rem;line-height:1.55;}
-.org-card{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;}
-.org-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(11,19,48,.35);}
+.org-card,.staff-card,.staff-role-card{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;}
+.org-card:hover,.staff-card:hover,.staff-role-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(11,19,48,.35);}
 .cadet-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(4,24,95,.6);z-index:999;align-items:center;justify-content:center;padding:20px;}
 .cadet-modal-backdrop.open{display:flex;}
 .cadet-modal{background:var(--white);border-radius:26px;padding:32px;max-width:320px;width:100%;text-align:center;box-shadow:0 30px 60px -20px rgba(4,24,95,.5);position:relative;}
@@ -244,47 +244,72 @@ img{max-width:100%;}
 <div class="page-head"><h1>Battalion Staff</h1><p class="tagline">The cadet chain of command leading the Battalion, from battalion command down through the S1&ndash;S6 staff sections.</p></div>
 
 <div class="section-title"><h2>Battalion Command</h2><div class="rule"></div></div>
-<div class="staff-list"><div class="staff-card"><div class="avatar">PHOTO</div><h4>Cadet Name</h4><span>Battalion Commander</span></div><div class="staff-card"><div class="avatar">PHOTO</div><h4>Cadet Name</h4><span>Executive Officer</span></div><div class="staff-card"><div class="avatar">PHOTO</div><h4>Cadet Name</h4><span>Command Sergeant Major</span></div></div>
+<div class="staff-list"><div class="staff-card" onclick="openCadet('cmd-0')"><div class="avatar">PHOTO</div><h4>Cadet Name</h4><span>Battalion Commander</span></div><div class="staff-card" onclick="openCadet('cmd-1')"><div class="avatar">PHOTO</div><h4>Cadet Name</h4><span>Executive Officer</span></div><div class="staff-card" onclick="openCadet('cmd-2')"><div class="avatar">PHOTO</div><h4>Cadet Name</h4><span>Command Sergeant Major</span></div></div>
 
 <div class="section-title"><h2>Staff Sections</h2><div class="rule"></div></div>
 <div class="staff-role-grid">
-  <div class="staff-role-card">
+  <div class="staff-role-card" onclick="openCadet('s1')">
     <div class="role-photo">PHOTO</div>
     <div class="role-title">S1 &mdash; Personnel & Administration</div>
     <div class="who"><span class="rank">C/CPT</span><span class="name">Cadet Name</span></div>
     <p>Maintains cadet records, attendance, grades, and administrative correspondence for the Battalion.</p>
   </div>
-  <div class="staff-role-card">
+  <div class="staff-role-card" onclick="openCadet('s2')">
     <div class="role-photo">PHOTO</div>
     <div class="role-title">S2 &mdash; Intelligence & Security</div>
     <div class="who"><span class="rank">C/1LT</span><span class="name">Cadet Name</span></div>
     <p>Manages accountability of sensitive equipment and briefs the Battalion on safety and security procedures.</p>
   </div>
-  <div class="staff-role-card">
+  <div class="staff-role-card" onclick="openCadet('s3')">
     <div class="role-photo">PHOTO</div>
     <div class="role-title">S3 &mdash; Operations & Training</div>
     <div class="who"><span class="rank">C/CPT</span><span class="name">Cadet Name</span></div>
     <p>Plans drill schedules, training events, and coordinates the Battalion's training calendar.</p>
   </div>
-  <div class="staff-role-card">
+  <div class="staff-role-card" onclick="openCadet('s4')">
     <div class="role-photo">PHOTO</div>
     <div class="role-title">S4 &mdash; Logistics & Supply</div>
     <div class="who"><span class="rank">C/1LT</span><span class="name">Cadet Name</span></div>
     <p>Oversees uniform issue, equipment inventory, and supply requests alongside the MPS.</p>
   </div>
-  <div class="staff-role-card">
+  <div class="staff-role-card" onclick="openCadet('s5')">
     <div class="role-photo">PHOTO</div>
     <div class="role-title">S5 &mdash; Plans & Community Relations</div>
     <div class="who"><span class="rank">C/2LT</span><span class="name">Cadet Name</span></div>
     <p>Coordinates community service projects, public affairs, and outreach for the Battalion.</p>
   </div>
-  <div class="staff-role-card">
+  <div class="staff-role-card" onclick="openCadet('s6')">
     <div class="role-photo">PHOTO</div>
     <div class="role-title">S6 &mdash; Communications</div>
     <div class="who"><span class="rank">C/2LT</span><span class="name">Cadet Name</span></div>
     <p>Manages the Battalion's website, social media, and internal communications.</p>
   </div></div>
-<p class="note">Sample staff roster shown &mdash; replace with current rank, name, and section assignments.</p>
+<p class="note">Sample staff roster shown &mdash; replace with current rank, name, and section assignments. Click any card to view that cadet's photo, name, and rank.</p>
+
+<div class="cadet-modal-backdrop" id="cadetModalBackdrop" onclick="if(event.target===this) closeCadet()">
+  <div class="cadet-modal">
+    <div class="close-x" onclick="closeCadet()">&#10005;</div>
+    <div class="avatar large" id="cadetModalAvatar">PHOTO</div>
+    <h4 id="cadetModalName">Cadet Name</h4>
+    <span class="cm-rank" id="cadetModalRank">C/CPT</span>
+    <p class="cm-role" id="cadetModalRole">Role</p>
+  </div>
+</div>
+<script>
+var STAFF_PEOPLE = {"cmd-0": {"rank": "C/LTC", "name": "Cadet Name", "role": "Battalion Commander"}, "cmd-1": {"rank": "C/MAJ", "name": "Cadet Name", "role": "Executive Officer"}, "cmd-2": {"rank": "C/CSM", "name": "Cadet Name", "role": "Command Sergeant Major"}, "s1": {"rank": "C/CPT", "name": "Cadet Name", "role": "S1 \u2014 Personnel & Administration"}, "s2": {"rank": "C/1LT", "name": "Cadet Name", "role": "S2 \u2014 Intelligence & Security"}, "s3": {"rank": "C/CPT", "name": "Cadet Name", "role": "S3 \u2014 Operations & Training"}, "s4": {"rank": "C/1LT", "name": "Cadet Name", "role": "S4 \u2014 Logistics & Supply"}, "s5": {"rank": "C/2LT", "name": "Cadet Name", "role": "S5 \u2014 Plans & Community Relations"}, "s6": {"rank": "C/2LT", "name": "Cadet Name", "role": "S6 \u2014 Communications"}};
+function openCadet(id) {
+  var c = STAFF_PEOPLE[id];
+  if (!c) return;
+  document.getElementById('cadetModalName').textContent = c.name;
+  document.getElementById('cadetModalRank').textContent = c.rank;
+  document.getElementById('cadetModalRole').textContent = c.role;
+  document.getElementById('cadetModalBackdrop').classList.add('open');
+}
+function closeCadet() {
+  document.getElementById('cadetModalBackdrop').classList.remove('open');
+}
+</script>
+
 
 </main>
 
