@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yearly Calendar</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 <style>
 
 :root{--blue:#0A3FDE;--blue-deep:#062A9E;--yellow:#FFCC00;--yellow-deep:#E6B800;--white:#ffffff;--paper:#F7F9FF;--ink:#0B1330;--ink-soft:#5B6480;--line:#E7EBF6;}
@@ -106,6 +106,13 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .hero-photo .overlay{position:relative;z-index:1;margin:28px 24px 0;padding:26px 36px;color:#fff;text-align:center;max-width:640px;background:rgba(4,20,80,.58);backdrop-filter:blur(6px);border-radius:22px;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px -20px rgba(0,0,0,.5);}
 .hero-photo .overlay h1{font-size:2.7rem;font-weight:800;margin:0 0 10px;letter-spacing:-0.02em;text-shadow:0 2px 10px rgba(0,0,0,.35);}
 .hero-photo .overlay p{max-width:56ch;color:#f1f4ff;font-size:1.05rem;margin:0 auto;line-height:1.5;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+.hero-photo.section-photo{margin-top:0;aspect-ratio:21/8;}
+.hero-photo .overlay h1.caption-font{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:2.3rem;letter-spacing:0;}
+.rank-ladder{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:0;}
+.rank-ladder li{display:flex;align-items:center;gap:12px;padding:10px 6px;border-bottom:1px solid var(--line);font-size:.92rem;}
+.rank-ladder li .rank{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:.78rem;flex:none;width:86px;font-weight:700;background:var(--paper);padding:5px 8px;border-radius:7px;text-align:center;}
+.rank-ladder li .rname{font-weight:600;}
+.rank-ladder-title{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);margin:0 0 6px;}
 .summary-section{margin:52px 0;display:grid;grid-template-columns:1.4fr .6fr;gap:32px;align-items:start;}
 .summary-section h2{font-size:1.5rem;font-weight:800;margin:0 0 14px;color:var(--ink);}
 .summary-section p{color:var(--ink-soft);font-size:1.04rem;line-height:1.7;margin:0 0 14px;}

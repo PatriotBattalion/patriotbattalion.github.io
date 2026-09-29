@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drill & Ceremony</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 <style>
 
 :root{--blue:#0A3FDE;--blue-deep:#062A9E;--yellow:#FFCC00;--yellow-deep:#E6B800;--white:#ffffff;--paper:#F7F9FF;--ink:#0B1330;--ink-soft:#5B6480;--line:#E7EBF6;}
@@ -106,6 +106,13 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .hero-photo .overlay{position:relative;z-index:1;margin:28px 24px 0;padding:26px 36px;color:#fff;text-align:center;max-width:640px;background:rgba(4,20,80,.58);backdrop-filter:blur(6px);border-radius:22px;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px -20px rgba(0,0,0,.5);}
 .hero-photo .overlay h1{font-size:2.7rem;font-weight:800;margin:0 0 10px;letter-spacing:-0.02em;text-shadow:0 2px 10px rgba(0,0,0,.35);}
 .hero-photo .overlay p{max-width:56ch;color:#f1f4ff;font-size:1.05rem;margin:0 auto;line-height:1.5;text-shadow:0 1px 6px rgba(0,0,0,.35);}
+.hero-photo.section-photo{margin-top:0;aspect-ratio:21/8;}
+.hero-photo .overlay h1.caption-font{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:2.3rem;letter-spacing:0;}
+.rank-ladder{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:0;}
+.rank-ladder li{display:flex;align-items:center;gap:12px;padding:10px 6px;border-bottom:1px solid var(--line);font-size:.92rem;}
+.rank-ladder li .rank{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:.78rem;flex:none;width:86px;font-weight:700;background:var(--paper);padding:5px 8px;border-radius:7px;text-align:center;}
+.rank-ladder li .rname{font-weight:600;}
+.rank-ladder-title{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);margin:0 0 6px;}
 .summary-section{margin:52px 0;display:grid;grid-template-columns:1.4fr .6fr;gap:32px;align-items:start;}
 .summary-section h2{font-size:1.5rem;font-weight:800;margin:0 0 14px;color:var(--ink);}
 .summary-section p{color:var(--ink-soft);font-size:1.04rem;line-height:1.7;margin:0 0 14px;}
@@ -242,6 +249,10 @@ img{max-width:100%;}
 <main>
 
 <div class="crumbs">The Battalion <b>/</b> Drill &amp; Ceremony</div>
+<div class="hero-photo section-photo">
+  <div class="scrim"></div>
+  <div class="overlay"><h1 class="caption-font">Charlie Company Formation</h1></div>
+</div>
 <div class="page-head"><h1>Drill &amp; Ceremony / Promotions</h1><p class="tagline">The standards every cadet learns, and the process for advancing in rank.</p></div>
 <div class="section-title"><h2>Drill Fundamentals</h2><div class="rule"></div></div>
 <div class="grid-cards" style="grid-template-columns:repeat(3,1fr);">
@@ -249,7 +260,13 @@ img{max-width:100%;}
   <div class="tile"><h3>Marching &amp; Formations</h3><p>Column, line, and flight formations at the halt and in march.</p></div>
   <div class="tile"><h3>Manual of Arms</h3><p>Rifle handling and positions used in armed exhibition drill.</p></div>
 </div>
-<div class="section-title"><h2>Promotion Board</h2><div class="rule"></div></div>
+<div class="section-title"><h2>Promotions</h2><div class="rule"></div></div>
+<p style="color:var(--ink-soft);font-size:.95rem;line-height:1.65;max-width:76ch;margin:0 0 20px;">Cadets advance through the Battalion's rank structure by time-in-grade, performance, and a formal promotion board. There are two tracks &mdash; the NCO (enlisted) track, which every cadet starts on, and the Officer track for cadets selected for command and staff positions.</p>
+<div class="roster-grid">
+  <div><div class="rank-ladder-title">NCO Track</div><ul class="rank-ladder"><li><span class="rank">C/PVT</span><span class="rname">Cadet Private</span></li><li><span class="rank">C/PFC</span><span class="rname">Cadet Private First Class</span></li><li><span class="rank">C/CPL</span><span class="rname">Cadet Corporal</span></li><li><span class="rank">C/SGT</span><span class="rname">Cadet Sergeant</span></li><li><span class="rank">C/SSG</span><span class="rname">Cadet Staff Sergeant</span></li><li><span class="rank">C/SFC</span><span class="rname">Cadet Sergeant First Class</span></li><li><span class="rank">C/MSG</span><span class="rname">Cadet Master Sergeant</span></li><li><span class="rank">C/1SG</span><span class="rname">Cadet First Sergeant</span></li><li><span class="rank">C/SGM</span><span class="rname">Cadet Sergeant Major</span></li><li><span class="rank">C/CSM</span><span class="rname">Cadet Command Sergeant Major</span></li></ul></div>
+  <div><div class="rank-ladder-title">Officer Track</div><ul class="rank-ladder"><li><span class="rank">C/2LT</span><span class="rname">Cadet Second Lieutenant</span></li><li><span class="rank">C/1LT</span><span class="rname">Cadet First Lieutenant</span></li><li><span class="rank">C/CPT</span><span class="rname">Cadet Captain</span></li><li><span class="rank">C/MAJ</span><span class="rname">Cadet Major</span></li><li><span class="rank">C/LTC</span><span class="rname">Cadet Lieutenant Colonel</span></li><li><span class="rank">C/COL</span><span class="rname">Cadet Colonel</span></li></ul></div>
+</div>
+<div class="section-title" style="margin-top:32px;"><h2>Promotion Board</h2><div class="rule"></div></div>
 <div class="timeline">
   <div><h4>Step 1 &mdash; Eligibility</h4><p>Time-in-grade and instructor recommendation requirements are reviewed each grading period.</p></div>
   <div><h4>Step 2 &mdash; Board Prep</h4><p>Candidates review rank structure, uniform standards, and battalion history.</p></div>
