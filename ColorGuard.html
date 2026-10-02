@@ -138,6 +138,13 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .promo-log li .parrow{color:var(--blue);font-weight:700;}
 .coming-soon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px;}
 .coming-soon-grid .cs-tile{background:var(--paper);border:1px dashed var(--line);border-radius:16px;padding:18px 16px;text-align:center;color:var(--ink-soft);font-size:.85rem;font-weight:700;}
+.season-shade{position:relative;}
+.season-shade .ss-content{filter:blur(1.5px) saturate(.75);opacity:.55;pointer-events:none;user-select:none;}
+.season-shade .ss-overlay{position:absolute;inset:0;z-index:5;display:flex;justify-content:center;background:linear-gradient(180deg,rgba(6,16,64,.08),rgba(6,16,64,.22) 40%,rgba(6,16,64,.22));}
+.season-shade .ss-box{position:sticky;top:120px;align-self:flex-start;margin-top:60px;background:#fff;border-radius:24px;padding:34px 40px;text-align:center;max-width:420px;box-shadow:0 30px 70px -20px rgba(5,14,56,.55);border:1px solid var(--line);}
+.season-shade .ss-box .ss-icon{width:54px;height:54px;border-radius:50%;background:var(--blue);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px;}
+.season-shade .ss-box h3{margin:0 0 8px;font-size:1.2rem;font-weight:800;}
+.season-shade .ss-box p{margin:0;color:var(--ink-soft);font-size:.92rem;line-height:1.5;}
 .video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#0B1330;box-shadow:0 18px 40px -28px rgba(11,19,48,.35);}
 .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .video-placeholder{aspect-ratio:16/9;border-radius:18px;border:1px dashed var(--line);background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-soft);text-align:center;padding:20px;}
@@ -282,6 +289,7 @@ img{max-width:100%;}
 
 <div class="crumbs">Extracurriculars <b>/</b> Color Guard</div>
 <div class="page-head"><h1>Color Guard</h1><p class="tagline">Presents and posts the colors at school, community, and ceremonial events.</p></div>
+
 <div class="info-strip">
   <div class="pill">Season&nbsp;<b>Aug 15 &ndash; Jun 1</b></div>
   <div class="pill">Practice&nbsp;<b>Wed, 3:15&ndash;4:30 PM</b></div>
@@ -301,6 +309,7 @@ img{max-width:100%;}
   <div class="gallery-grid"><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div></div>
   <div class="dropbox-note"><span>&#128193;</span><div>Photo dropbox &mdash; cadets and parents upload competition and practice photos here; new uploads appear in this gallery.</div></div>
 </div>
+
 
 </main>
 
