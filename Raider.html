@@ -286,14 +286,47 @@ img{max-width:100%;}
   <div class="pill">Season&nbsp;<b>Sep 1 &ndash; Mar 15</b></div>
   <div class="pill">Practice&nbsp;<b>Tue &amp; Thu, 3:30&ndash;5:30 PM</b></div>
 </div>
+
+<div class="section-title"><h2>Raider Leadership</h2><div class="rule"></div></div>
+<div class="org-chart">
+  <div><div class="org-tier-title">Raider Captain</div><div class="org-tier"><div class="org-card command" onclick="openCadet('Raider-captain')"><span class="rank">C/CSM</span><span class="oname">Gibbs</span><span class="role">Raider Captain</span></div></div></div>
+  <div><div class="org-tier-title">Team Commanders</div><div class="org-tier">
+    <div class="org-tier-group"><div class="org-tier-title" style="margin-bottom:6px;">Female Raiders</div><div class="org-card" onclick="openCadet('Raider-fcmd')"><span class="rank">C/MAJ</span><span class="oname">Harvey</span><span class="role">Female Raider Commander</span></div></div>
+    <div class="org-tier-group"><div class="org-tier-title" style="margin-bottom:6px;">Male Raiders</div><div class="org-card" onclick="openCadet('Raider-mcmd')"><span class="rank">C/CSM</span><span class="oname">Gibbs</span><span class="role">Male Raider Commander</span></div></div>
+  </div></div>
+</div>
+<div class="cadet-modal-backdrop" id="cadetModalBackdrop" onclick="if(event.target===this) closeCadet()">
+  <div class="cadet-modal">
+    <div class="close-x" onclick="closeCadet()">&#10005;</div>
+    <div class="avatar large" id="cadetModalAvatar">PHOTO</div>
+    <h4 id="cadetModalName">Cadet Name</h4>
+    <span class="cm-rank" id="cadetModalRank">C/CPT</span>
+    <p class="cm-role" id="cadetModalRole">Role</p>
+  </div>
+</div>
+<script>
+var CADETS_Raider = {"Raider-captain": {"rank": "C/CSM", "name": "Gibbs", "role": "Raider Captain"}, "Raider-fcmd": {"rank": "C/MAJ", "name": "Harvey", "role": "Female Raider Commander"}, "Raider-mcmd": {"rank": "C/CSM", "name": "Gibbs", "role": "Male Raider Commander"}};
+function openCadet(id) {
+  var c = CADETS_Raider[id];
+  if (!c) return;
+  document.getElementById('cadetModalName').textContent = c.name;
+  document.getElementById('cadetModalRank').textContent = c.rank;
+  document.getElementById('cadetModalRole').textContent = c.role;
+  document.getElementById('cadetModalBackdrop').classList.add('open');
+}
+function closeCadet() {
+  document.getElementById('cadetModalBackdrop').classList.remove('open');
+}
+</script>
+
 <div class="two-col">
   <div class="card"><h3>Team</h3>
     <div class="photo-block"><div style="font-size:26px;">&#128247;</div><span class="cap">Team photo &mdash; current active roster</span></div>
-    <ul class="roster"><li>C/CPT&emsp;Squad Leader</li><li>C/SGT&emsp;Team Captain</li><li>C/CPL&emsp;Cadet Name</li><li>C/CPL&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li></ul>
+    <ul class="roster"><li>C/CPL&emsp;Cadet Name</li><li>C/CPL&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li><li>C/PVT&emsp;Cadet Name</li></ul>
     <p class="note">Sample roster format shown &mdash; replace with the current active roster.</p>
   </div>
   <div class="card"><h3>Instructor</h3>
-    <div class="instructor"><div class="avatar">PHOTO</div><div><h4>Coach / Instructor Name</h4><p>Raider Team Coach</p><a href="mailto:raider.coach@school.edu">raider.coach@school.edu</a></div></div>
+    <div class="instructor"><div class="avatar">PHOTO</div><div><h4>SSG(R) Robitzsch</h4><p>Raider Team Coach</p><a href="mailto:robitzschj@wilcoxcountyschools.org">robitzschj@wilcoxcountyschools.org</a></div></div>
   </div>
 </div>
 <div class="card"><h3>Competition &amp; Practice Photos</h3>
