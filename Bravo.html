@@ -52,6 +52,14 @@ main{max-width:1180px;margin:0 auto;padding:0 40px 70px;}
 .card h3{margin:0 0 16px;font-size:1.08rem;font-weight:800;display:flex;align-items:center;gap:8px;color:var(--ink);}
 .photo-block{height:220px;border-radius:18px;background:linear-gradient(135deg,rgba(255,204,0,.16),rgba(10,63,222,.14));border:1.5px dashed #c4cfef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-soft);text-align:center;padding:14px;}
 .photo-block .cap{font-size:.8rem;max-width:24ch;font-weight:600;}
+.cc-photo-tile{height:220px;border-radius:18px;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;background:linear-gradient(135deg,var(--blue),var(--blue-deep));transition:transform .15s ease,box-shadow .15s ease;}
+.cc-photo-tile:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(11,19,48,.4);}
+.cc-photo-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.cc-photo-tile .cc-noPhoto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--yellow);font-weight:700;font-size:.8rem;}
+.cc-photo-tile .cc-caption{position:relative;width:100%;padding:14px 16px;background:linear-gradient(0deg,rgba(11,19,48,.78),rgba(11,19,48,0));color:#fff;}
+.cc-photo-tile .cc-caption .cc-rank{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--yellow);font-weight:700;letter-spacing:.04em;}
+.cc-photo-tile .cc-caption .cc-name{display:block;font-weight:800;font-size:1rem;}
+.cc-photo-tile .cc-caption .cc-label{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:#dbe4ff;margin-top:1px;}
 .roster{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:0;}
 .roster li{display:flex;gap:10px;padding:9px 6px;border-bottom:1px solid var(--line);font-size:.92rem;}
 .roster li .rank{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:.78rem;flex:none;width:80px;font-weight:600;}
@@ -322,8 +330,15 @@ img{max-width:100%;}
 </div>
 
 <div class="two-col">
-  <div class="card"><h3>Company Photo</h3>
-    <div class="photo-block"><div style="font-size:26px;">&#128247;</div><span class="cap">Bravo Company &mdash; formation photo</span></div>
+  <div class="card"><h3>Company Commander</h3>
+    <div class="cc-photo-tile" onclick="openCadet('Bravo-cc')">
+      <div class="cc-noPhoto">PHOTO</div>
+      <div class="cc-caption">
+        <span class="cc-rank">C/CPT</span>
+        <span class="cc-name">Cadet Name</span>
+        <span class="cc-label">Bravo Company Commander</span>
+      </div>
+    </div>
   </div>
   <div class="card"><h3>At a Glance</h3>
     <ul class="roster">
@@ -358,10 +373,21 @@ img{max-width:100%;}
   </div>
 </div>
 <script>
-var CADETS_Bravo = {"Bravo-xo": {"rank": "C/1LT", "name": "Cadet Name", "role": "Executive Officer"}, "Bravo-cc": {"rank": "C/CPT", "name": "Cadet Name", "role": "Bravo Company Commander"}, "Bravo-1sg": {"rank": "C/1SG", "name": "Cadet Name", "role": "First Sergeant"}, "Bravo-1st-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "1st Platoon Leader"}, "Bravo-1st-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "1st Platoon Sergeant"}, "Bravo-2nd-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "2nd Platoon Leader"}, "Bravo-2nd-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "2nd Platoon Sergeant"}};
+var CADETS_Bravo = {"Bravo-xo": {"rank": "C/1LT", "name": "Cadet Name", "role": "Executive Officer", "photo": null}, "Bravo-cc": {"rank": "C/CPT", "name": "Cadet Name", "role": "Bravo Company Commander", "photo": null}, "Bravo-1sg": {"rank": "C/1SG", "name": "Cadet Name", "role": "First Sergeant", "photo": null}, "Bravo-1st-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "1st Platoon Leader", "photo": null}, "Bravo-1st-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "1st Platoon Sergeant", "photo": null}, "Bravo-2nd-pl": {"rank": "C/2LT", "name": "Cadet Name", "role": "2nd Platoon Leader", "photo": null}, "Bravo-2nd-sgt": {"rank": "C/SFC", "name": "Cadet Name", "role": "2nd Platoon Sergeant", "photo": null}};
 function openCadet(id) {
   var c = CADETS_Bravo[id];
   if (!c) return;
+  var avatarEl = document.getElementById('cadetModalAvatar');
+  if (c.photo) {
+    avatarEl.innerHTML = '<img src="' + c.photo + '" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">';
+    avatarEl.style.background = 'none';
+    avatarEl.style.padding = '0';
+    avatarEl.style.overflow = 'hidden';
+  } else {
+    avatarEl.innerHTML = 'PHOTO';
+    avatarEl.style.background = '';
+    avatarEl.style.padding = '';
+  }
   document.getElementById('cadetModalName').textContent = c.name;
   document.getElementById('cadetModalRank').textContent = c.rank;
   document.getElementById('cadetModalRole').textContent = c.role;
