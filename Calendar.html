@@ -206,9 +206,7 @@ footer{margin-top:64px;background:linear-gradient(180deg,var(--blue-deep),#04185
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-size:.84rem;font-weight:700;}
 .btn-primary{background:var(--blue);color:#fff;}
 .btn-outline{background:var(--paper);color:var(--ink);border:1px solid var(--line);}
-.embed-frame{height:420px;border-radius:18px;border:1.5px dashed #c4cfef;background:repeating-linear-gradient(90deg,rgba(10,63,222,.05) 0 1px,transparent 1px 60px),repeating-linear-gradient(0deg,rgba(10,63,222,.05) 0 1px,transparent 1px 60px),linear-gradient(135deg,rgba(255,204,0,.08),rgba(10,63,222,.08));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink-soft);text-align:center;padding:20px;}
-.embed-frame b{color:var(--ink);font-size:1rem;}
-.embed-frame span{font-size:.82rem;max-width:42ch;}
+.embed-frame{height:600px;border-radius:18px;display:block;}
 .company-hero{display:flex;align-items:center;gap:16px;margin-bottom:4px;}
 .company-hero .badge{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.5rem;color:#fff;flex:none;}
 .award-tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow);color:var(--blue-deep);font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:999px;}
@@ -274,6 +272,7 @@ img{max-width:100%;}
 @media (max-width:640px){
   .grid-cards,.cadet-grid,.company-grid,.staff-list,.calendar-grid,.staff-role-grid,.gallery-grid,.com-grid,.coming-soon-grid{grid-template-columns:1fr !important;}
   .photo-gallery-real img{width:100% !important;}
+  .embed-frame{height:460px !important;}
   .site-nav{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 16px;}
   .brand{font-size:.98rem;gap:8px;}
   .crest{width:42px;height:42px;border-radius:11px;}
@@ -323,18 +322,15 @@ img{max-width:100%;}
   <div class="embed-head">
     <div><h3>&#128197; Live Google Calendar</h3><p>Synced automatically &mdash; practices, meets, and ceremonies added to the Battalion's Google Calendar appear here without editing the page.</p></div>
     <div class="actions">
-      <a class="btn btn-primary" href="#">Open in Google Calendar</a>
-      <a class="btn btn-outline" href="#">Subscribe</a>
+      <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0?cid=c_5f90f7b552955077d1d31de70f9975d94b683e7447a70b003707e63f2df17c7f%40group.calendar.google.com" target="_blank" rel="noopener">Open in Google Calendar</a>
+      <a class="btn btn-outline" href="https://calendar.google.com/calendar/ical/c_5f90f7b552955077d1d31de70f9975d94b683e7447a70b003707e63f2df17c7f%40group.calendar.google.com/public/basic.ics">Subscribe</a>
     </div>
   </div>
-  <div class="embed-frame">
-    <b>Google Calendar embed</b>
-    <span>In Google Sites, use Insert &rarr; Calendar and choose the Battalion's calendar &mdash; the live month view will render in this space in place of this placeholder.</span>
-  </div>
+  <iframe class="embed-frame" src="https://calendar.google.com/calendar/embed?src=c_5f90f7b552955077d1d31de70f9975d94b683e7447a70b003707e63f2df17c7f%40group.calendar.google.com&ctz=America%2FNew_York&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&color=%230A3FDE" style="border:0;width:100%;" frameborder="0" scrolling="no"></iframe>
 </div>
 
 <div class="calendar-grid"><div class="month-card"><h4>August</h4><ul><li>15 &mdash; First day of drill practice</li><li>29 &mdash; Battalion kickoff formation</li></ul></div><div class="month-card"><h4>September</h4><ul><li>1 &mdash; Raider Team season begins</li><li>20 &mdash; Community 5K fun run</li></ul></div><div class="month-card"><h4>October</h4><ul><li>3 &mdash; Fall awards ceremony</li><li>18 &mdash; Regional drill meet</li></ul></div><div class="month-card"><h4>November</h4><ul><li>11 &mdash; Veterans Day parade</li><li>24&ndash;28 &mdash; Thanksgiving break</li></ul></div><div class="month-card"><h4>December</h4><ul><li>5 &mdash; Winter formal inspection</li><li>15 &mdash; Holiday social</li></ul></div><div class="month-card"><h4>January</h4><ul><li>12 &mdash; Air Rifle league opens</li><li>26 &mdash; Company drill-off</li></ul></div><div class="month-card"><h4>February</h4><ul><li>9 &mdash; Raider invitational</li><li>23 &mdash; Color Guard showcase</li></ul></div><div class="month-card"><h4>March</h4><ul><li>2 &mdash; Battalion awards night</li><li>15 &mdash; Raider season ends</li></ul></div><div class="month-card"><h4>April</h4><ul><li>6 &mdash; Area drill championship</li><li>20 &mdash; Spring community parade</li></ul></div><div class="month-card"><h4>May</h4><ul><li>4 &mdash; Federal inspection</li><li>18 &mdash; Cadet leadership banquet</li></ul></div><div class="month-card"><h4>June</h4><ul><li>1 &mdash; End-of-year formation</li><li>8&ndash;19 &mdash; JCLC summer leadership camp</li></ul></div><div class="month-card"><h4>July</h4><ul><li>Off-season &mdash; no scheduled events</li></ul></div></div>
-<p class="note">Sample training year and placeholder embed shown &mdash; connect the Battalion's real Google Calendar and replace the dates above with its events.</p>
+<p class="note">Sample training year shown below the live calendar &mdash; keep adding events to the Battalion's Google Calendar and this page updates automatically.</p>
 
 </main>
 
